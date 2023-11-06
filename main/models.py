@@ -17,7 +17,7 @@ class ProductGroup(models.Model):
     name = models.CharField(max_length=50, default="default")
     description = models.TextField(null=False, blank=True, default="default food group description")
     created_by = models.ForeignKey(User, models.CASCADE)
-    # tags
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.name
@@ -61,7 +61,6 @@ class Purchase(models.Model):
         on_delete=models.PROTECT,
     )
     quantity = models.FloatField(default=1)
-    #
     total = models.FloatField(default=0)
     shop = models.ForeignKey(
         Shop,

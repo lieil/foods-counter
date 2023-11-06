@@ -12,7 +12,10 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(ProductGroup)
 class ProductGroupAdmin(admin.ModelAdmin):
-    list_display = "pk", "name", "description", "created_by"
+    def tags_output(self, obj):
+        tags = [tag.name for  tag in obj.tags.all()]
+        return tags
+    list_display = "pk", "name", "tags_output", "description", "created_by"
     list_display_links = "pk", "name"
 
 
