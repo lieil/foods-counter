@@ -1,0 +1,22 @@
+{% extends 'root.html' %}
+
+{% block title %}
+Foods app - groups
+{% endblock %}
+
+{% block main %}
+<h1>Виды продуктов</h1>
+<ul>
+    {% for item in groups %}
+    <li>
+        <p>{{item.name}}</p>
+        <ul>
+            {% for tag in item.tags.all %}
+            <li>{{tag}}</li>
+            {% endfor %}
+        </ul>
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

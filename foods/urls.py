@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 import main.views as main
+from main.views import purchase_list, group_list
 
 urlpatterns = [
     path('', main.index),
     path('admin/', admin.site.urls),
+    path("purchases/", purchase_list),
+    path("groups/", group_list),
 ]

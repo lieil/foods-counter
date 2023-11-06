@@ -1,0 +1,21 @@
+{% extends 'root.html' %}
+
+{% block title %}
+Foods app - purchases
+{% endblock %}
+
+{% block main %}
+<h1>Покупки</h1>
+<ul>
+    {% for item in purchases %}
+    <li>
+        <p>{{item.output_date}} - {{item.product}} - {{item.product.group}} - {{item.total}}</p>
+        <p>
+        {% for tag in item.product.group.tags.all %}
+        тэг: {{tag}},
+        {% endfor %}
+        </p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
