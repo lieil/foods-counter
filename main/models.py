@@ -29,6 +29,8 @@ class Product(models.Model):
         ProductGroup,
         on_delete=models.PROTECT,
     )
+    netto = models.FloatField(default=0)
+    description = models.TextField(null=True, blank=True)
 
     class Unit(models.TextChoices):
         PIECE = "PC", _("Штука")
